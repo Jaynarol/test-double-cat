@@ -6,6 +6,7 @@ export default class Man {
 
   static feedCat(cat, remainFood) {
     let myRemainFood = remainFood
+    myRemainFood = myRemainFood < 0 || myRemainFood === Infinity ? 0 : myRemainFood
     if (cat.isHungry()) {
       const needFood = this.needFood(myRemainFood, cat)
       myRemainFood -= needFood
