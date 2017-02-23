@@ -8,15 +8,16 @@ export default class Man {
     let myRemainFood = remainFood
     if (cat.isHungry()) {
       const needFood = this.needFood(myRemainFood, cat)
-      myRemainFood += needFood
+      myRemainFood -= needFood
       cat.feed(needFood)
     }
     return myRemainFood
   }
 
   static needFood(remainFood, cat) {
-    const food = cat.getFood()
-    return (remainFood >= food && remainFood >= 100) ? (100 - food) : remainFood
+    const catHungry = cat.getFood()
+    const fulfillFood = 100
+    return (remainFood >= catHungry && remainFood >= fulfillFood) ? (fulfillFood - catHungry) : remainFood
   }
 
 }
